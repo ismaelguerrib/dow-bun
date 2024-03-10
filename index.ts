@@ -15,6 +15,30 @@ Bun.serve({
           path.endsWith(Bun.env.LANGUAGE_FR as string):
           contentType = 'text/html';
           break;
+        case path.endsWith('.css'):
+          contentType = 'text/css';
+          break;
+        case path.endsWith('.js'):
+          contentType = 'text/javascript';
+          break;
+        case path.endsWith('.json'):
+          contentType = 'application/json';
+          break;
+        case path.endsWith('.png'):
+          contentType = 'image/png';
+          break;
+        case path.endsWith('.jpg'):
+          contentType = 'image/jpg';
+          break;
+        case path.endsWith('.gif'):
+          contentType = 'image/gif';
+          break;
+        case path.endsWith('.svg'):
+          contentType = 'image/svg+xml';
+          break;
+        default:
+          contentType = 'text/plain';
+          break;
       }
 
       return new Response(content, {
