@@ -15,6 +15,8 @@ Bun.serve({
       let content = await res.text();
 
       if (isFrenchVersion) {
+        content = content.replace(/href="\/en-us\//g, 'href="/fr-fr/');
+
         const keys: string[] = Object.keys(
           dictionary as Record<string, string>
         );
