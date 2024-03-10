@@ -1,6 +1,6 @@
 // https://bun.sh/
 
-const host = 'www.dow.com';
+const host = Bun.env.HOST;
 
 Bun.serve({
   port: 36107,

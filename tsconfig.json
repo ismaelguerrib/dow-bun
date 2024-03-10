@@ -19,9 +19,10 @@
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
 
+
     // Some stricter flags
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noPropertyAccessFromIndexSignature": true
+    "noPropertyAccessFromIndexSignature": false
   }
 }
