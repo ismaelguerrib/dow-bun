@@ -1,12 +1,12 @@
 # Dow Bun-proxy
 
-This project is a proxy made with Bun.
+This project is a proxy made with [Bun](https://bun.sh/).
 
-This is the Ismaël Guerrib answer to a technical challenge.
+This is the [Ismaël Guerrib](https://github.com/ismaelguerrib/) answer to a technical challenge.
 
-# Installation steps
+# Installation steps of the project
 
-Follow the INSTALL.md
+Follow the [INSTALL.md](INSTALL.md)
 
 # Instructions of the challenge
 
