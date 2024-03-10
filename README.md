@@ -1,6 +1,8 @@
 # Dow Bun-proxy
 
-This project is a proxy made with [Bun](https://bun.sh/).
+This project is a simple proxy server that fetches and modifies the content to handle EN and FR versions. 
+
+This project is made with [Bun](https://bun.sh/).
 
 This is the [Ismaël Guerrib](https://github.com/ismaelguerrib/) answer to a technical challenge.
 
