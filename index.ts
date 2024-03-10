@@ -1,9 +1,13 @@
 Bun.serve({
   port: Bun.env.PORT,
   fetch: async () => {
-    const res = await fetch(Bun.env.HOST as string);
-    const content = await res.text();
-    return new Response(content);
+    try {
+      const res = await fetch(Bun.env.HOST as string);
+      const content = await res.text();
+      return new Response(content);
+    } catch (err: any) {
+      return new Response(err.message, { status: 500 });
+    }
   },
 });
 
