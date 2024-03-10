@@ -71,6 +71,9 @@ web_modules/
 
 .npm
 
+# Ignore npm package-lock files
+package-lock.json
+
 # Optional eslint cache
 
 .eslintcache
