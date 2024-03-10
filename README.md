@@ -6,7 +6,7 @@ Nous devons aider l'équipe sales pour une démo client, ils utilisent une techn
 
 Il va falloir l'installer et apprendre à l'utiliser pour intégrer notre solution
 
-Etape 1: créer un proxy qui permet d'afficher le site du client (www.dow.com) *correctement* via le serveur local Bun
+Etape 1: créer un proxy qui permet d'afficher le site du client (www.dow.com) _correctement_ via le serveur local Bun
 
 Résultat:
 
@@ -23,3 +23,8 @@ Résultat:
 ![www.dow.com](screens/step2.png)
 
 Etape 4: on pourrait naviguer sur `/fr-fr/*` comme sur le site original ?
+
+# Installation steps
+
+- run `npm i` at the root of the project.
+- create a `.env` based on the `.env.example` add it your settings and config values
