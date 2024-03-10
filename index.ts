@@ -2,7 +2,15 @@ Bun.serve({
   port: Bun.env.PORT,
   fetch: async (request: Request) => {
     try {
-      const path = new URL(request.url).pathname;
+      let path = new URL(request.url).pathname;
+
+      // Handle language switch from en to fr
+      if (path.includes(Bun.env.LANGUAGE_FR as string)) {
+        path = path.replace(
+          Bun.env.LANGUAGE_FR as string,
+          Bun.env.LANGUAGE_EN as string
+        );
+      }
 
       const res = await fetch(`${Bun.env.HOST}${path}`);
       let content = await res.text();
@@ -52,4 +60,4 @@ Bun.serve({
   },
 });
 
-console.log('Run on', `${Bun.env.LOCAL_HOST}${Bun.env.LANGUAGE_EN}`);
+console.log('Run on', `${Bun.env.LOCAL_HOST}${Bun.env.LANGUAGE_FR}`);
