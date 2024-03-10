@@ -45,6 +45,12 @@ _I add to the .env.example all the needed data because we are on a simulation an
 bun run index.ts
 ```
 
+### The project is now running locally ! 🎉
+
+To check the EN version : http://localhost:36107/en-us
+
+To check the FR version : http://localhost:36107/fr-fr
+
 ## Contact
 
 If you want to contact me you can reach me at `ismael.guerrib85@gmail.com`.
