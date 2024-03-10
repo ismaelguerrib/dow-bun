@@ -7,11 +7,25 @@ Bun.serve({
       const res = await fetch(`${Bun.env.HOST}${path}`);
       let content = await res.text();
 
-      return new Response(content);
+      let contentType;
+
+      switch (!!path) {
+        case path.endsWith('.html') ||
+          path.endsWith(Bun.env.LANGUAGE_EN as string) ||
+          path.endsWith(Bun.env.LANGUAGE_FR as string):
+          contentType = 'text/html';
+          break;
+      }
+
+      return new Response(content, {
+        headers: {
+          'Content-Type': contentType as string,
+        },
+      });
     } catch (err: any) {
       return new Response(err.message, { status: 500 });
     }
   },
 });
 
-console.log('Run on', Bun.env.LOCAL_HOST);
+console.log('Run on', `${Bun.env.LOCAL_HOST}${Bun.env.LANGUAGE_EN}`);
