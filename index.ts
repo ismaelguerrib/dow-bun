@@ -27,38 +27,24 @@ Bun.serve({
         });
       }
 
-      let contentType;
+      let contentType = 'text/plain';
 
-      switch (!!path) {
-        case path.endsWith('.html') ||
-          path.endsWith(Bun.env.LANGUAGE_EN) ||
-          path.endsWith(Bun.env.LANGUAGE_FR):
-          contentType = 'text/html';
-          break;
-        case path.endsWith('.css'):
-          contentType = 'text/css';
-          break;
-        case path.endsWith('.js'):
-          contentType = 'text/javascript';
-          break;
-        case path.endsWith('.json'):
-          contentType = 'application/json';
-          break;
-        case path.endsWith('.png'):
-          contentType = 'image/png';
-          break;
-        case path.endsWith('.jpg'):
-          contentType = 'image/jpg';
-          break;
-        case path.endsWith('.gif'):
-          contentType = 'image/gif';
-          break;
-        case path.endsWith('.svg'):
-          contentType = 'image/svg+xml';
-          break;
-        default:
-          contentType = 'text/plain';
-          break;
+      if (path.endsWith('.html') || path.endsWith(Bun.env.LANGUAGE_EN)) {
+        contentType = 'text/html';
+      } else if (path.endsWith('.css')) {
+        contentType = 'text/css';
+      } else if (path.endsWith('.js')) {
+        contentType = 'text/javascript';
+      } else if (path.endsWith('.json')) {
+        contentType = 'application/json';
+      } else if (path.endsWith('.png')) {
+        contentType = 'image/png';
+      } else if (path.endsWith('.jpg')) {
+        contentType = 'image/jpeg';
+      } else if (path.endsWith('.gif')) {
+        contentType = 'image/gif';
+      } else if (path.endsWith('.svg')) {
+        contentType = 'image/svg+xml';
       }
 
       return new Response(content, {
@@ -71,5 +57,3 @@ Bun.serve({
     }
   },
 });
-
-console.log('Run on', `${Bun.env.LOCAL_HOST}${Bun.env.LANGUAGE_FR}`);
