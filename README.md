@@ -1,6 +1,14 @@
-⚠️ **Pas de fork, ni de PR. Utilisez ce repo comme un template sur votre compte par exemple**
+# Dow Bun-proxy
 
-# solution-engineer-test
+This project is a proxy made with Bun.
+
+This is the Ismaël Guerrib answer to a technical challenge.
+
+# Installation steps
+
+Follow the INSTALL.md
+
+# Instructions of the challenge
 
 Nous devons aider l'équipe sales pour une démo client, ils utilisent une technologie qui n'est pas courante: [Bun](https://bun.sh/)
 
@@ -23,8 +31,3 @@ Résultat:
 ![www.dow.com](screens/step2.png)
 
 Etape 4: on pourrait naviguer sur `/fr-fr/*` comme sur le site original ?
-
-# Installation steps
-
-- run `npm i` at the root of the project.
-- create a `.env` based on the `.env.example` add it your settings and config values
