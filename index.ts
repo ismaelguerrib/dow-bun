@@ -57,3 +57,14 @@ Bun.serve({
     }
   },
 });
+
+// Theses logs will be prompted in the terminal when the server is running :
+console.log('🎉 The proxy server is now running locally ! 🎉');
+console.log(
+  `To check the EN version, go to : ${Bun.env.LOCAL_HOST}${Bun.env.LANGUAGE_EN}`
+);
+console.log(
+  `To check the FR version, go to : ${Bun.env.LOCAL_HOST}${Bun.env.LANGUAGE_FR}`
+);
+
+console.log('You can kill the server by pressing Ctrl + C.');
