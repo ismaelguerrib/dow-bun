@@ -1,26 +1,36 @@
+import dictionary from './dictionary.json';
+
 Bun.serve({
   port: Bun.env.PORT,
   fetch: async (request: Request) => {
     try {
       let path = new URL(request.url).pathname;
+      const isFrenchVersion = path.includes(Bun.env.LANGUAGE_FR);
 
-      // Handle language switch from en to fr
-      if (path.includes(Bun.env.LANGUAGE_FR as string)) {
-        path = path.replace(
-          Bun.env.LANGUAGE_FR as string,
-          Bun.env.LANGUAGE_EN as string
-        );
+      if (isFrenchVersion) {
+        path = path.replace(Bun.env.LANGUAGE_FR, Bun.env.LANGUAGE_EN);
       }
 
       const res = await fetch(`${Bun.env.HOST}${path}`);
       let content = await res.text();
 
+      if (isFrenchVersion) {
+        const keys: string[] = Object.keys(
+          dictionary as Record<string, string>
+        );
+
+        keys.forEach((key) => {
+          const reg = new RegExp(key, 'g');
+          content = content.replace(reg, dictionary[key]);
+        });
+      }
+
       let contentType;
 
       switch (!!path) {
         case path.endsWith('.html') ||
-          path.endsWith(Bun.env.LANGUAGE_EN as string) ||
-          path.endsWith(Bun.env.LANGUAGE_FR as string):
+          path.endsWith(Bun.env.LANGUAGE_EN) ||
+          path.endsWith(Bun.env.LANGUAGE_FR):
           contentType = 'text/html';
           break;
         case path.endsWith('.css'):
@@ -51,7 +61,7 @@ Bun.serve({
 
       return new Response(content, {
         headers: {
-          'Content-Type': contentType as string,
+          'Content-Type': contentType,
         },
       });
     } catch (err: any) {
